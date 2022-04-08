@@ -9,11 +9,13 @@ const store = new Vuex.Store({
       loginUser: {},
     };
   },
-  mutations: {},
-  actions: {},
-  modules: {
+  mutations: {
+    setUserInfo(state, userInfo) {
+      state.loginUser = userInfo;
+    },
   },
+  actions: {},
+  modules: {},
 });
-
 
 export default store;

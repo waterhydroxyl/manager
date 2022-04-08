@@ -51,12 +51,14 @@ export default {
   components: { PageCard, PaginationFooter, PageModal },
   data() {
     return {
+      loginUserName: '',
       eqList: [],
       page: 1,
     };
   },
   mixins: [handleContentMixin],
   created() {
+    this.loginUserName = this.$store.state.loginUser.name;
     this.getTaskList();
     this.getAllCustomer();
     this.getEquipmentList();
@@ -94,7 +96,7 @@ export default {
         this.formData = res.data;
 
         //判断状态禁用表单
-        if (this.formData.status === 2) {
+        if (this.formData.status === 3) {
           this.modalConfig.formItems.forEach((item) => {
             item.disabled = true;
           });
@@ -110,11 +112,13 @@ export default {
     },
     handleConfirm(newFormData, id) {
       if (!id) {
-        myRequest.post(`/task/addTask`, newFormData).then((res) => {
-          console.log(res);
-          this.$message.success('操作成功');
-          this.getTaskList();
-        });
+        myRequest
+          .post(`/task/addTask`, { ...newFormData, createBy: this.loginUserName })
+          .then((res) => {
+            console.log(res);
+            this.$message.success('操作成功');
+            this.getTaskList();
+          });
       } else {
         myRequest.patch(`/task/updateTask/${id}`, newFormData).then((res) => {
           console.log(res);

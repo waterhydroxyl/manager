@@ -39,6 +39,7 @@
               <el-date-picker
                 style="width: 100%"
                 type="datetime"
+                value-format="yyyy-MM-dd HH:mm:ss"
                 v-bind="item.otherOptions"
                 v-model="formData[item.field]"
                 :disabled="item.disabled"
