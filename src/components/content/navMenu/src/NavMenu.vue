@@ -111,13 +111,13 @@ export default {
         id: 3,
         name: '任务中心',
         type: 1,
-        url: '/main/system',
+        url: '/main/taskesMG',
         icon: 'el-icon-setting',
         sort: 2,
         children: [
           {
             id: 31,
-            url: '/main/system/user',
+            url: '/main/taskesMG/taskMG',
             name: '任务管理',
             sort: 100,
             type: 2,

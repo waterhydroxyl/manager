@@ -1,9 +1,16 @@
 <template>
   <div class="card">
     <el-card
-      :body-style="{ display: 'flex', 'justify-content': 'space-around', 'align-items': 'center' }"
+      class="[]"
+      :body-style="{
+        display: 'flex',
+        'justify-content': 'space-around',
+        'align-items': 'center',
+        'background-color': bgColor,
+      }"
     >
       <div>
+        <div v-if="status">状态：{{ realStatus }}</div>
         <div>名称：{{ name }}</div>
         <div v-if="model">型号：{{ model }}</div>
         <div v-if="workNumber">工号：{{ workNumber }}</div>
@@ -56,6 +63,10 @@ export default {
       type: String,
       default: '',
     },
+    status: {
+      type: Number,
+      default: 0,
+    },
   },
   methods: {
     handleView() {
@@ -66,10 +77,35 @@ export default {
       this.$emit('delect', this.id);
     },
   },
+  computed: {
+    bgColor() {
+      if (this.status === 3) {
+        return 'gray';
+      } else if (this.status === 2) {
+        return '#d8f6f2';
+      } else if (this.status === 1) {
+        return '#9fbc50';
+      } else {
+        return '#fff';
+      }
+    },
+    realStatus() {
+      if (this.status === 3) {
+        return '已完成';
+      } else if (this.status === 2) {
+        return '未开始';
+      } else {
+        return '进行中';
+      }
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
+::v-deep .box-card {
+  background: aliceblue;
+}
 .card {
   width: 360px;
   height: 250px;

@@ -108,6 +108,8 @@ export default {
     id() {
       return this.defaultInfo.id;
     },
+
+    //禁止编辑的字段，创建的时候不显示，就要深拷贝便利删除
     newModalConfig() {
       console.log('newModalConfig');
       console.log(this.modalConfig);

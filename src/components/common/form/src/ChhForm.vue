@@ -24,6 +24,7 @@
                 style="width: 100%"
                 :value="formData[item.field]"
                 @change="(value) => onChangeValue(item.field, value)"
+                :disabled="item.disabled"
               >
                 <el-option
                   v-for="option in item.options"
@@ -37,10 +38,12 @@
             <template v-else-if="item.type === 'datepicker'">
               <el-date-picker
                 style="width: 100%"
+                type="datetime"
                 v-bind="item.otherOptions"
                 v-model="formData[item.field]"
+                :disabled="item.disabled"
               >
-                @change="value => onChangeValue(item.field, value)" ></el-date-picker
+                > @change="value => onChangeValue(item.field, value)" ></el-date-picker
               >
             </template>
           </el-form-item>

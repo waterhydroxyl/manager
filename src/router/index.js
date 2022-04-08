@@ -24,13 +24,18 @@ const routes = [
       },
       {
         path: '/main/resourseMg/employeMg',
-        name: 'Dashboard',
+        name: 'employeMg',
         component: () => import('@/views/main/resourseMg/employeMg/employeMg.vue'),
       },
       {
         path: '/main/resourseMg/customerMg',
-        name: 'User',
+        name: 'customerMg',
         component: () => import('@/views/main/resourseMg/customerMg/customerMg.vue'),
+      },
+      {
+        path: '/main/taskesMg/taskMg',
+        name: 'taskMg',
+        component: () => import('@/views/main/taskesMg/taskMg/taskMg.vue'),
       },
     ],
   },

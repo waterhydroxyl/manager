@@ -5,7 +5,7 @@ export const modalConfig = {
       field: 'name',
       type: 'input',
       label: '设备名称',
-      placeholder: '请输入用户名',
+      placeholder: '请输入设备名',
     },
     {
       field: 'type',
@@ -24,7 +24,6 @@ export const modalConfig = {
       type: 'input',
       label: '购买价格',
       placeholder: '请输入价格',
-      isHidden: false,
     },
     {
       field: 'workTime',

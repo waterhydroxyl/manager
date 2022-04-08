@@ -32,16 +32,20 @@ export default {
       console.log(this.loginForm.account);
       console.log(this.loginForm.password);
 
-      myRequest.post('/user/login', this.loginForm).then((res) => {
-        console.log(res);
-        if (res.code === 1) {
-          this.$message.success('登录成功');
-          this.$router.push('/main');
-        } else {
-          this.$message.error(res.msg);
-          this.$router.push('/main');
-        }
-      });
+      myRequest
+        .post('/user/login', this.loginForm)
+        .then((res) => {
+          if (res.code === 1) {
+            this.$message.success('登录成功');
+            this.$router.push('/main');
+          } else {
+            this.$message.error(res.msg);
+            this.$router.push('/main');
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     },
   },
 };
