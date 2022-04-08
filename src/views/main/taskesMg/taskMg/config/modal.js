@@ -8,12 +8,12 @@ export const modalConfig = {
       placeholder: '请输入任务名称',
     },
     {
-      field: 'customerName',
+      field: 'customerId',
       type: 'select',
       label: '客户名称',
     },
     {
-      field: 'equipmentName',
+      field: 'equipmentId',
       type: 'select',
       label: '出勤设备',
     },
