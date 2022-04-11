@@ -8,10 +8,11 @@
         <PageCard
           :name="item.name"
           :model="item.model"
-          :createBy="item.createBy"
           :imageUrl="item.img"
           :key="item.id"
           :id="item.id"
+          :status="item.status"
+          :createBy="item.createBy"
           @view="handleView"
           @delect="handleDelect"
         />
@@ -39,22 +40,26 @@ import PaginationFooter from '@/components/content/paginationFooter';
 import PageModal from '@/components/content/pageModal';
 /* 配置 */
 import { myRequest } from '@/service';
-
+import { mapDataToOptions } from './utils';
 /* 配置 */
 import { handleContentMixin } from '@/mixin/handleContentMixin';
 import { modalConfig } from './config/modal';
 
 export default {
+  name: 'BulletinMg',
   components: { PageCard, PaginationFooter, PageModal },
   data() {
     return {
+      loginUserName: '',
       eqList: [],
       page: 1,
     };
   },
   mixins: [handleContentMixin],
   created() {
-    this.getcustomerList();
+    this.loginUserName = this.$store.state.loginUser.name;
+    this.getBulletinList();
+    this.getAllCustomer();
   },
   computed: {
     modalConfig() {
@@ -62,42 +67,52 @@ export default {
     },
   },
   methods: {
-    getcustomerList() {
-      myRequest.get(`/customer/getAllCustomer/${this.page}/6`).then((res) => {
+    getAllCustomer() {
+      myRequest('/common/getTaskList').then((res) => {
+        modalConfig.formItems[2].options = mapDataToOptions(res.data);
+        console.log(modalConfig);
+      });
+    },
+
+    getBulletinList() {
+      myRequest.get(`/bulletin/getAllBulletin/${this.page}/6`).then((res) => {
         this.eqList = res.data.list;
       });
     },
     handleCurrentChange(val) {
       // console.log(val);
       this.page = val;
-      this.getcustomerList();
+      this.getBulletinList();
     },
     handleView(id) {
-      myRequest.get(`/customer/getCustomerById/${id}`).then((res) => {
+      myRequest.get(`/bulletin/getBulletinById/${id}`).then((res) => {
         this.formData = res.data;
         this.onView();
       });
+      console.log(id);
     },
     handleConfirm(newFormData, id) {
       if (!id) {
-        myRequest.post(`/customer/addCustomer`, newFormData).then((res) => {
-          console.log(res);
-          this.$message.success('操作成功');
-          this.getcustomerList();
-        });
+        myRequest
+          .post(`/bulletin/addBulletin`, { ...newFormData, createBy: this.loginUserName })
+          .then((res) => {
+            console.log(res);
+            this.$message.success('操作成功');
+            this.getBulletinList();
+          });
       } else {
-        myRequest.patch(`/customer/updateCustomer/${id}`, newFormData).then((res) => {
+        myRequest.patch(`/bulletin/updateBulletin/${id}`, newFormData).then((res) => {
           console.log(res);
           this.$message.success('操作成功');
-          this.getcustomerList();
+          this.getBulletinList();
         });
       }
     },
     handleDelect(id) {
-      myRequest.delete(`/customer/deletecustomer/${id}`).then((res) => {
+      myRequest.delete(`/bulletin/deleteBulletin/${id}`).then((res) => {
         console.log(res);
         this.$message.success('操作成功');
-        this.getcustomerList();
+        this.getBulletinList();
       });
     },
   },

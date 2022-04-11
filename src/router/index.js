@@ -32,10 +32,26 @@ const routes = [
         name: 'customerMg',
         component: () => import('@/views/main/resourseMg/customerMg/customerMg.vue'),
       },
+
+
+
       {
         path: '/main/taskesMg/taskMg',
         name: 'taskMg',
         component: () => import('@/views/main/taskesMg/taskMg/taskMg.vue'),
+      },
+
+
+
+      {
+        path: '/main/announceCT/announceMg',
+        name: 'announceMg',
+        component: () => import('@/views/main/announceCT/announceMg/announceMg.vue'),
+      },
+      {
+        path: '/main/announceCT/announceList',
+        name: 'announceList',
+        component: () => import('@/views/main/announceCT/announceList/announceList.vue'),
       },
     ],
   },
