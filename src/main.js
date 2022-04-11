@@ -6,11 +6,11 @@ import store from '@/store';
 import registerApp from '@/global';
 
 Vue.config.productionTip = false;
+registerApp();
+
 // Vue.use(initStore)
 new Vue({
   render: (h) => h(App),
   store,
   router,
 }).$mount('#app');
-
-registerApp();

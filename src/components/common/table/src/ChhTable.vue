@@ -8,12 +8,7 @@
         </div>
       </slot>
     </div>
-    <el-table
-      :data="listData"
-      border
-      style="width: 100%"
-      v-bind="childrenProps"
-    >
+    <el-table :data="dataList" border style="width: 100%" v-bind="childrenProps">
       <el-table-column
         v-if="showSelectColumn"
         align="center"
@@ -41,78 +36,63 @@
         </template>
       </el-table-column>
     </el-table>
-    <div class="table-footer" v-if="showFooter">
+    <div class="table-footer">
       <slot name="footer">
-        <el-pagination
-          @size-change="onSizeChange"
-          @current-change="onCurrentChange"
-          :current-page="pageInfo.currentPage + 1"
-          :page-sizes="[10, 20, 30, 40]"
-          :page-size="pageInfo.pageSize"
-          layout="total, sizes, prev, pager, next, jumper"
-          :total="listCount"
-        >
-        </el-pagination>
+        <PaginationFooter @current-change="handleCurrentChange" :total="50" />
       </slot>
     </div>
   </div>
 </template>
 
 <script>
+import PaginationFooter from '@/components/content/paginationFooter';
 export default {
   props: {
-    listData: {
+    dataList: {
       type: Array,
-      default: () => []
-    },
-    listCount: {
-      type: Number,
-      default: 0
-    },
-    pageInfo: {
-      type: Object,
-      default: () => ({ pageSize: 10, currentPage: 0 })
+      default: () => [],
     },
     propList: {
       type: Array,
-      required: true
+      required: true,
     },
     showIndexColumn: {
       type: Boolean,
-      default: false
+      default: false,
     },
     showSelectColumn: {
       type: Boolean,
-      default: false
+      default: false,
     },
     title: {
       type: String,
-      default: "标题"
+      default: '标题',
     },
     childrenProps: {
       type: Object,
-      default: () => {}
+      default: () => {},
     },
-    showFooter: {
-      type: Boolean,
-      default: true
-    }
+    // showFooter: {
+    //   type: Boolean,
+    //   default: true
+    // }
   },
   data() {
     return {};
   },
+  components: {
+    PaginationFooter,
+  },
   created() {},
   methods: {
     onSizeChange(pageSize) {
-      this.$emit("onSizeChange", { ...this.pageInfo, pageSize });
+      this.$emit('onSizeChange', { ...this.pageInfo, pageSize });
     },
-    onCurrentChange(currentPage) {
-      this.$emit("onCurrentChange", {
-        ...this.pageInfo,
-        currentPage: currentPage - 1
-      });
-    }
-  }
+    handleCurrentChange(val) {
+      console.log(val);
+      this.$emit('onCurrentChange', val);
+    },
+  },
 };
 </script>
 

@@ -16,15 +16,6 @@ export const handleContentMixin = {
     },
   },
   methods: {
-    /* 点击重置 */
-    // onReset() {
-    //   this.$refs.pageContentRef.getListData();
-    // },
-    // /* 点击搜索 */
-    // onSearch(formData) {
-    //   this.$refs.pageContentRef.getListData(formData);
-    // },
-    // /* 创建用户 */
     onCreate() {
       this.formData = {};
       this.$refs.pageModalRef.showDialog = true;

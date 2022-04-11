@@ -6,6 +6,12 @@
 <script>
 export default {
   name: 'PaginationFooter',
+  props: {
+    total: {
+      type: Number,
+      default: 50,
+    },
+  },
   methods: {
     handleCurrentChange(val) {
       this.$emit('current-change', val);
