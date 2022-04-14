@@ -15,6 +15,9 @@
         <div v-if="model">型号：{{ model }}</div>
         <div v-if="workNumber">工号：{{ workNumber }}</div>
         <div v-if="createBy">负责人：{{ createBy }}</div>
+        <div v-if="telephoneNumber">电话：{{ telephoneNumber }}</div>
+        <div v-if="sex">性别：{{ sex }}</div>
+        <div v-if="idCardNumber">身份证号码：{{ idCardNumber }}</div>
         <div class="bottom clearfix">
           <el-button type="primary" size="mini" class="button" @click="handleView">查看</el-button>
           <el-button type="danger" size="mini" class="button" @click="handleDelect">删除</el-button>
@@ -66,6 +69,18 @@ export default {
     status: {
       type: Number,
       default: 0,
+    },
+    telephoneNumber: {
+      type: String,
+      default: '',
+    },
+    sex: {
+      type: String,
+      default: '',
+    },
+    idCardNumber: {
+      type: String,
+      default: '',
     },
   },
   methods: {

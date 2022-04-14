@@ -129,13 +129,13 @@ export default {
         id: 4,
         name: '员工中心',
         type: 1,
-        url: '/main/analysis',
+        url: '/main/employeCT',
         icon: 'el-icon-monitor',
         sort: 1,
         children: [
           {
             id: 41,
-            url: '/main/analysis/overview',
+            url: '/main/employeCT/workCheckIn',
             name: '工作打卡',
             sort: 106,
             type: 2,
@@ -144,7 +144,7 @@ export default {
           },
           {
             id: 42,
-            url: '/main/analysis/overview',
+            url: '/main/employeCT/workHours',
             name: '工时统计',
             sort: 106,
             type: 2,
@@ -153,7 +153,7 @@ export default {
           },
           {
             id: 43,
-            url: '/main/analysis/overview',
+            url: '/main/employeCT/personInfo',
             name: '个人信息',
             sort: 106,
             type: 2,
@@ -162,7 +162,7 @@ export default {
           },
           {
             id: 44,
-            url: '/main/analysis/overview',
+            url: '/main/employeCT/overview',
             name: '支出列表',
             sort: 106,
             type: 2,
@@ -171,7 +171,7 @@ export default {
           },
           {
             id: 45,
-            url: '/main/analysis/overview',
+            url: '/main/employeCT/overview',
             name: '支出申请',
             sort: 106,
             type: 2,

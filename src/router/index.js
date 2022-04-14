@@ -53,6 +53,22 @@ const routes = [
         name: 'announceList',
         component: () => import('@/views/main/announceCT/announceList/announceList.vue'),
       },
+
+      {
+        path: '/main/employeCT/workCheckIn',
+        name: 'workCheckIn',
+        component: () => import('@/views/main/employeCT/workCheckIn/workCheckIn.vue'),
+      },
+      {
+        path: '/main/employeCT/workHours',
+        name: 'workHours',
+        component: () => import('@/views/main/employeCT/workHours/workHours.vue'),
+      },
+      {
+        path: '/main/employeCT/personInfo',
+        name: 'personInfo',
+        component: () => import('@/views/main/employeCT/personInfo/personInfo.vue'),
+      },
     ],
   },
 ];

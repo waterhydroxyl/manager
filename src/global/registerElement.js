@@ -43,6 +43,7 @@ import {
   Message,
   Upload,
   Alert,
+  Calendar,
 } from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 
@@ -90,6 +91,7 @@ const components = [
   Tag,
   Upload,
   Alert,
+  Calendar
 ];
 
 export default function () {
