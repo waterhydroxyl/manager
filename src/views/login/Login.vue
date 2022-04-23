@@ -34,6 +34,7 @@ export default {
         .post('/user/login', this.loginForm)
         .then((res) => {
           if (res.code === 1) {
+            console.log(res.data);
             this.$store.commit('setUserInfo', res.data);
             this.$message.success('登录成功');
             this.$router.push('/main');

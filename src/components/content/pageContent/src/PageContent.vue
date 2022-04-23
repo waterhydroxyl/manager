@@ -22,10 +22,48 @@
       </template>
       <template #handler="scope">
         <div class="handle-btns">
-          <el-button icon="el-icon-edit" size="normal" type="text" @click="onView(scope.row.id)"
+          <el-button
+            v-if="isShowView"
+            icon="el-icon-edit"
+            size="normal"
+            type="text"
+            @click="this.$emit('onView', scope.row)"
             >查看</el-button
           >
+          <el-button
+            v-if="isShowAdmir"
+            icon="el-icon-edit"
+            size="normal"
+            type="text"
+            @click="this.$emit('onAdmir', scope.row)"
+            >同意</el-button
+          >
+          <el-button
+            v-if="isShowRefuse"
+            icon="el-icon-edit"
+            size="normal"
+            type="text"
+            @click="this.$emit('refuse', scope.row.id)"
+            >拒绝</el-button
+          >
+          <el-button
+            v-if="isShowDelete"
+            icon="el-icon-edit"
+            size="normal"
+            type="text"
+            @click="this.$emit('delect', scope.row.id)"
+            >删除</el-button
+          >
         </div>
+      </template>
+      <template #status="scope">
+        <el-button size="mini" plain v-if="scope.row.status === 0"> 未审批 </el-button>
+        <el-button size="mini" plain v-else-if="scope.row.status === 1" type="success"
+          >已同意</el-button
+        >
+        <el-button size="mini" plain v-else-if="scope.row.status === 2" type="danger"
+          >已拒绝</el-button
+        >
       </template>
     </chh-table>
   </div>
@@ -39,6 +77,22 @@ export default {
     ChhTable,
   },
   props: {
+    isShowView: {
+      type: Boolean,
+      default: false,
+    },
+    isShowAdmir: {
+      type: Boolean,
+      default: false,
+    },
+    isShowRefuse: {
+      type: Boolean,
+      default: false,
+    },
+    isShowDelete: {
+      type: Boolean,
+      default: false,
+    },
     dataList: {
       type: Array,
       required: true,
@@ -49,11 +103,11 @@ export default {
     },
   },
   methods: {
-    onView(value) {
-      console.log('onView');
-      console.log(value);
-      this.$emit('onView', value);
-    },
+    // onView(value) {
+    //   console.log('onView');
+    //   console.log(value);
+    //   this.$emit('onView', value);
+    // },
 
     onSizeChange(pageInfo) {
       this.pageInfo = pageInfo;

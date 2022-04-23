@@ -20,7 +20,7 @@ import { contentConfig } from './config/content';
 /* mixin */
 // import { handleContentMixin } from "@/mixin/handleContentMixin";
 export default {
-  name: 'workHours',
+  name: 'waitApproval',
   data() {
     return {
       dataList: [],
@@ -41,9 +41,8 @@ export default {
   },
   methods: {
     getPendList() {
-      myRequest.get(`employee/getWorkList/1`).then((res) => {
-        console.log(res);
-        this.dataList = res.data;
+      myRequest.get(`/approval/getApplyListByUser/${this.$store.state.loginUser.id}/${this.page}/6`).then((res) => {
+        this.dataList = res.data.list;
       });
     },
     handleCurrentChange(val) {

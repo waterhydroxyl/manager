@@ -3,9 +3,11 @@
     <page-content
       :contentConfig="contentConfig"
       :dataList="dataList"
-      :isShowView="true"
+      :isShowAdmir="true"
+      :isShowRefuse="true"
       ref="pageContentRef"
-      @onView="handleView"
+      @onAdmir="handleAdmir"
+      @onRefuse="handleRefuse"
       @onCurrentChange="handleCurrentChange"
     />
     <PageModal
@@ -30,7 +32,7 @@ import { modalConfig } from './config/modal';
 /* mixin */
 // import { handleContentMixin } from "@/mixin/handleContentMixin";
 export default {
-  name: 'AnnounceList',
+  name: 'waitApproval',
   data() {
     return {
       dataList: [],
@@ -41,7 +43,7 @@ export default {
   mixins: [handleContentMixin],
   components: { PageContent, PageModal },
   created() {
-    this.getBulletinList();
+    this.getPendList();
   },
   mounted() {},
   computed: {
@@ -53,23 +55,29 @@ export default {
     },
   },
   methods: {
-    getBulletinList() {
-      myRequest.get(`/bulletin/getAllBulletin/${this.page}/6`).then((res) => {
+    getPendList() {
+      myRequest.get(`/approval/getPendList/${this.page}/6`).then((res) => {
         this.dataList = res.data.list;
       });
     },
     handleCurrentChange(val) {
       console.log(val);
       this.page = val;
-      this.getBulletinList();
+      this.getPendList();
     },
-    handleView(id) {
-      console.log(id);
-      myRequest.get(`/bulletin/getBulletinById/${id}`).then((res) => {
-        this.formData = res.data;
-        this.onView();
+    handleAdmir(id) {
+      myRequest.post(`/approval/approval/${id}/1`).then((res) => {
+        console.log(res);
+        this.$message.success('确认审批成功');
+        this.getPendList();
       });
-      console.log(id);
+    },
+    handleRefuse(id) {
+      myRequest.post(`/approval/approval/${id}/2`).then((res) => {
+        console.log(res);
+        this.$message.success('拒绝审批成功');
+        this.getPendList();
+      });
     },
     handleConfirm() {
       console.log('handleConfirm');

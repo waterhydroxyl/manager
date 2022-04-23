@@ -1,6 +1,3 @@
-// import CHHRequest from './network';
-// // import { BASE_URL, TIME_OUT } from "./config"
-// import localCache from '@/utils/cache';
 import { Message } from 'element-ui';
 import axios from 'axios';
 

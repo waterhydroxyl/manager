@@ -43,6 +43,7 @@ export default {
   created() {
     // 获取菜单和选中菜单
     const info = [
+      //资源
       {
         id: 1,
         name: '资源管理',
@@ -80,6 +81,7 @@ export default {
           },
         ],
       },
+      // 公告
       {
         id: 2,
         name: '公告中心',
@@ -106,6 +108,7 @@ export default {
           },
         ],
       },
+      //任务
       {
         id: 3,
         name: '任务中心',
@@ -124,7 +127,7 @@ export default {
           },
         ],
       },
-
+      //员工
       {
         id: 4,
         name: '员工中心',
@@ -162,47 +165,83 @@ export default {
           },
           {
             id: 44,
-            url: '/main/employeCT/overview',
+            url: '/main/employeCT/spendingList',
             name: '支出列表',
-            sort: 106,
+            sort: 107,
             type: 2,
             children: null,
             parentId: 4,
           },
           {
             id: 45,
-            url: '/main/employeCT/overview',
+            url: '/main/employeCT/spendingApply',
             name: '支出申请',
-            sort: 106,
+            sort: 108,
             type: 2,
             children: null,
             parentId: 4,
           },
         ],
       },
+      //审批
       {
         id: 5,
         name: '审批中心',
         type: 1,
-        url: '/main/system',
+        url: '/main/approvalCT',
         icon: 'el-icon-setting',
         sort: 2,
         children: [
           {
             id: 51,
-            url: '/main/system/user',
+            url: '/main/approvalCT/waitApproval',
             name: '待审事项',
             sort: 100,
             type: 2,
-            parentId: 2,
+            parentId: 5,
           },
           {
             id: 52,
-            url: null,
+            url: '/main/approvalCT/approvalList',
             name: '审批列表',
-            sort: null,
+            sort: 101,
             type: 2,
-            parentId: 2,
+            parentId: 5,
+          },
+        ],
+      },
+      //财务
+      {
+        id: 6,
+        name: '财务中心',
+        type: 1,
+        url: '/main/financialCT',
+        icon: 'el-icon-setting',
+        sort: 2,
+        children: [
+          {
+            id: 71,
+            url: '/main/financialCT/financialSm',
+            name: '财务报表',
+            sort: 100,
+            type: 2,
+            parentId: 6,
+          },
+          {
+            id: 72,
+            url: '/main/financialCT/financialMg',
+            name: '财务管理',
+            sort: 101,
+            type: 2,
+            parentId: 6,
+          },
+          {
+            id: 82,
+            url: '/main/financialCT/financialList',
+            name: '财务列表',
+            sort: 101,
+            type: 2,
+            parentId: 6,
           },
         ],
       },

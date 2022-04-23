@@ -3,9 +3,10 @@
     <page-content
       :contentConfig="contentConfig"
       :dataList="dataList"
-      :isShowAdmir="true"
-      :isShowRefuse="true"
+      :isShowDelete="true"
       ref="pageContentRef"
+      @delect="handleDelect"
+      @onCurrentChange="handleCurrentChange"
     />
   </div>
 </template>
@@ -15,12 +16,11 @@
 import PageContent from '@/components/content/pageContent';
 /* 配置 */
 import { myRequest } from '@/service';
-import { handleContentMixin } from '@/mixin/handleContentMixin';
 import { contentConfig } from './config/content';
 /* mixin */
 // import { handleContentMixin } from "@/mixin/handleContentMixin";
 export default {
-  name: 'workHours',
+  name: 'financiallist',
   data() {
     return {
       dataList: [],
@@ -28,10 +28,9 @@ export default {
       page: 1,
     };
   },
-  mixins: [handleContentMixin],
   components: { PageContent },
   created() {
-    this.getPendList();
+    this.getfinancialList();
   },
   mounted() {},
   computed: {
@@ -40,16 +39,21 @@ export default {
     },
   },
   methods: {
-    getPendList() {
-      myRequest.get(`employee/getWorkList/1`).then((res) => {
-        console.log(res);
-        this.dataList = res.data;
+    getfinancialList() {
+      myRequest.get(`/financial/getFinancialList/${this.page}/6`).then((res) => {
+        this.dataList = res.data.list;
       });
     },
     handleCurrentChange(val) {
       console.log(val);
       this.page = val;
-      this.getPendList();
+      this.getfinancialList();
+    },
+    handleDelect(id) {
+      console.log(id);
+    },
+    handleConfirm() {
+      console.log('handleConfirm');
     },
   },
 };

@@ -59,7 +59,7 @@ export default {
   created() {
     this.loginUserName = this.$store.state.loginUser.name;
     this.getBulletinList();
-    this.getAllCustomer();
+    this.getAllTask();
   },
   computed: {
     modalConfig() {
@@ -67,7 +67,7 @@ export default {
     },
   },
   methods: {
-    getAllCustomer() {
+    getAllTask() {
       myRequest('/common/getTaskList').then((res) => {
         modalConfig.formItems[2].options = mapDataToOptions(res.data);
         console.log(modalConfig);

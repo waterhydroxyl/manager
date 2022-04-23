@@ -54,6 +54,8 @@ const routes = [
         component: () => import('@/views/main/announceCT/announceList/announceList.vue'),
       },
 
+
+
       {
         path: '/main/employeCT/workCheckIn',
         name: 'workCheckIn',
@@ -68,6 +70,46 @@ const routes = [
         path: '/main/employeCT/personInfo',
         name: 'personInfo',
         component: () => import('@/views/main/employeCT/personInfo/personInfo.vue'),
+      },
+      {
+        path: '/main/employeCT/spendingList',
+        name: 'spendingList',
+        component: () => import('@/views/main/employeCT/spendingList/spendingList.vue'),
+      },
+      {
+        path: '/main/employeCT/spendingApply',
+        name: 'spendingApply',
+        component: () => import('@/views/main/employeCT/spendingApply/spendingApply.vue'),
+      },
+
+
+
+      {
+        path: '/main/approvalCT/waitApproval',
+        name: 'waitApproval',
+        component: () => import('@/views/main/approvalCT/waitApproval/waitApproval.vue'),
+      },
+      {
+        path: '/main/approvalCT/approvalList',
+        name: 'approvalList',
+        component: () => import('@/views/main/approvalCT/approvalList/approvalList.vue'),
+      },
+
+
+      {
+        path: '/main/financialCT/financialSm',
+        name: 'financialSm',
+        component: () => import('@/views/main/financialCT/financialSm/financialSm.vue'),
+      },
+      {
+        path: '/main/financialCT/financialMg',
+        name: 'financialMg',
+        component: () => import('@/views/main/financialCT/financialMg/financialMg.vue'),
+      },
+      {
+        path: '/main/financialCT/financialList',
+        name: 'financialList',
+        component: () => import('@/views/main/financialCT/financialList/financialList.vue'),
       },
     ],
   },

@@ -4,7 +4,7 @@
       <!-- <div class="imageContainer" @click=""> -->
       <el-image
         style="width: 200px; height: 200px"
-        :src="isCheckIn ? imageUrlTrue : imageUrlFalse"
+        :src="isCheckIn ? imageUrlFalse : imageUrlTrue"
         fit="cover"
         @click="handleView"
       ></el-image>
