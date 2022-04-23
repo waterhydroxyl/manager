@@ -1,4 +1,3 @@
-import Vue from 'vue';
 import {
   Button,
   Aside,
@@ -44,10 +43,10 @@ import {
   Upload,
   Alert,
   Calendar,
+  MessageBox,
 } from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 
-Vue.prototype.$message = Message;
 const components = [
   Button,
   Aside,
@@ -91,11 +90,15 @@ const components = [
   Tag,
   Upload,
   Alert,
-  Calendar
+  Calendar,
+  MessageBox,
 ];
 
-export default function () {
+export default function (app) {
   for (const cpn of components) {
-    Vue.use(cpn);
+    app.component(cpn.name, cpn);
+    app.prototype.$message = Message;
+    app.prototype.$alert = MessageBox.alert;
+    app.prototype.$confirm = MessageBox.confirm;
   }
 }

@@ -33,6 +33,7 @@ export const modalConfig = {
       field: 'remark',
       type: 'input',
       label: '说明',
+      textarea:'textarea',
       placeholder: '请输入说明内容',
     },
     // {

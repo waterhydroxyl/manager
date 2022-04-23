@@ -40,6 +40,7 @@ export const modalConfig = {
       type: 'input',
       label: '备注',
       placeholder: '请输入备注',
+      textarea:'textarea',
     },
   ],
   colLayout: { span: 24 },

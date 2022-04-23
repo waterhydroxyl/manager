@@ -6,7 +6,7 @@ import store from '@/store';
 import registerApp from '@/global';
 
 Vue.config.productionTip = false;
-registerApp();
+registerApp(Vue);
 
 // Vue.use(initStore)
 new Vue({

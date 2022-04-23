@@ -29,6 +29,7 @@ export const modalConfig = {
       label: '公告内容',
       placeholder: '请输入公告内容',
       disabled: true,
+      textarea: 'textarea',
     },
     {
       field: 'createTime',

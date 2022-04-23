@@ -36,18 +36,20 @@ export const modalConfig = {
         { title: '用户', value: 1 },
       ],
     },
-    {
-      field: 'remark',
-      type: 'input',
-      label: '备注',
-      placeholder: '请输入备注',
-    },
+
     {
       field: 'createBy',
       type: 'input',
       label: '创建人',
       placeholder: '请输入身份证号码',
       disabled: true,
+    },
+    {
+      field: 'remark',
+      type: 'input',
+      label: '备注',
+      placeholder: '请输入备注',
+      textarea: 'textarea',
     },
     {
       field: 'img',

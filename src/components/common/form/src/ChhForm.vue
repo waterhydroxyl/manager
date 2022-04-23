@@ -9,6 +9,7 @@
           <el-form-item :label="item.label" :rules="item.rules" :style="itemStyle">
             <template v-if="item.type === 'input' || item.type === 'password'">
               <el-input
+                :type="item.textarea"
                 :placeholder="item.placeholder"
                 v-bind="item.otherOptions"
                 :show-password="item.type === 'password'"

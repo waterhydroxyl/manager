@@ -86,6 +86,7 @@ export default {
       const titleEnum = {
         create: '新建',
         edit: '编辑',
+        view: '查看',
       };
       return titleEnum[this.handleType] + this.modalConfig.title;
     },

@@ -27,7 +27,7 @@
             icon="el-icon-edit"
             size="normal"
             type="text"
-            @click="this.$emit('onView', scope.row)"
+            @click="onView(scope.row.id)"
             >查看</el-button
           >
           <el-button
@@ -35,7 +35,7 @@
             icon="el-icon-edit"
             size="normal"
             type="text"
-            @click="this.$emit('onAdmir', scope.row)"
+            @click="onAdmir(scope.row.id)"
             >同意</el-button
           >
           <el-button
@@ -43,7 +43,7 @@
             icon="el-icon-edit"
             size="normal"
             type="text"
-            @click="this.$emit('refuse', scope.row.id)"
+            @click="onRefuse(scope.row.id)"
             >拒绝</el-button
           >
           <el-button
@@ -51,7 +51,7 @@
             icon="el-icon-edit"
             size="normal"
             type="text"
-            @click="this.$emit('delect', scope.row.id)"
+            @click="onDelete(scope.row.id)"
             >删除</el-button
           >
         </div>
@@ -103,11 +103,18 @@ export default {
     },
   },
   methods: {
-    // onView(value) {
-    //   console.log('onView');
-    //   console.log(value);
-    //   this.$emit('onView', value);
-    // },
+    onView(id) {
+      this.$emit('onView', id);
+    },
+    onAdmir(id) {
+      this.$emit('onAdmir', id);
+    },
+    onRefuse(id) {
+      this.$emit('onRefuse', id);
+    },
+    onDelete(id) {
+      this.$emit('onDelect', id);
+    },
 
     onSizeChange(pageInfo) {
       this.pageInfo = pageInfo;

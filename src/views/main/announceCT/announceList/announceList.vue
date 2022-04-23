@@ -67,7 +67,7 @@ export default {
       console.log(id);
       myRequest.get(`/bulletin/getBulletinById/${id}`).then((res) => {
         this.formData = res.data;
-        this.onView();
+        this.onView('查看公告');
       });
       console.log(id);
     },

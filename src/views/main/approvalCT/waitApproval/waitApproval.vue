@@ -66,18 +66,22 @@ export default {
       this.getPendList();
     },
     handleAdmir(id) {
-      myRequest.post(`/approval/approval/${id}/1`).then((res) => {
-        console.log(res);
-        this.$message.success('确认审批成功');
-        this.getPendList();
-      });
+      myRequest
+        .get(`/approval/operationApply/${id}/1/${this.$store.state.loginUser.id}`)
+        .then((res) => {
+          console.log(res);
+          this.$message.success('确认审批成功');
+          this.getPendList();
+        });
     },
     handleRefuse(id) {
-      myRequest.post(`/approval/approval/${id}/2`).then((res) => {
-        console.log(res);
-        this.$message.success('拒绝审批成功');
-        this.getPendList();
-      });
+      myRequest
+        .get(`/approval/operationApply/${id}/2/${this.$store.state.loginUser.id}`)
+        .then((res) => {
+          console.log(res);
+          this.$message.success('拒绝审批成功');
+          this.getPendList();
+        });
     },
     handleConfirm() {
       console.log('handleConfirm');
