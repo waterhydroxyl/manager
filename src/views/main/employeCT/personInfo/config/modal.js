@@ -37,7 +37,7 @@ export const modalConfig = {
       ],
     },
     {
-      field: 'idCardNumber',
+      field: 'workNumber',
       type: 'input',
       label: '工号',
       placeholder: '请输入工号',

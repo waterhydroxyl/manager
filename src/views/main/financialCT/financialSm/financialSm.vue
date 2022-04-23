@@ -108,8 +108,7 @@ export default {
   data() {
     return {
       data: {},
-      value1: '2022-03-20 00:00:00',
-      value2: '2022-05-20 00:00:00',
+      value1: ['2022-03-20 00:00:00', '2022-05-20 00:00:00'],
     };
   },
   created() {
@@ -125,8 +124,8 @@ export default {
         url: '/financial/getFinancialData',
         method: 'post',
         data: {
-          startTime: this.value1,
-          endTime: this.value2,
+          startTime: this.value1[0],
+          endTime: this.value1[1],
         },
       }).then((res) => {
         this.data = res.data;

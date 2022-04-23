@@ -80,11 +80,16 @@ export default {
     },
     handleConfirm(newFormData, id) {
       if (!id) {
-        myRequest.post(`/customer/addCustomer`, newFormData).then((res) => {
-          console.log(res);
-          this.$message.success('操作成功');
-          this.getcustomerList();
-        });
+        myRequest
+          .post(`/customer/addCustomer`, {
+            createBy: this.$store.state.loginUser.name,
+            ...newFormData,
+          })
+          .then((res) => {
+            console.log(res);
+            this.$message.success('操作成功');
+            this.getcustomerList();
+          });
       } else {
         myRequest.patch(`/customer/updateCustomer/${id}`, newFormData).then((res) => {
           console.log(res);
@@ -100,7 +105,7 @@ export default {
         type: 'warning',
       })
         .then(() => {
-          myRequest.delete(`/customer/deletecustomer/${id}`).then((res) => {
+          myRequest.delete(`/customer/deleteCustomer/${id}`).then((res) => {
             console.log(res);
             this.$message.success('操作成功');
             this.getcustomerList();

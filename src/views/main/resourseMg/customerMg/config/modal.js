@@ -30,20 +30,16 @@ export const modalConfig = {
       field: 'superintendent',
       type: 'input',
       label: '负责人',
-      placeholder: '请输入价格',
-      options: [
-        { title: '管理员', value: 0 },
-        { title: '用户', value: 1 },
-      ],
+      placeholder: '请输入负责人',
+
     },
 
-    {
-      field: 'createBy',
-      type: 'input',
-      label: '创建人',
-      placeholder: '请输入身份证号码',
-      disabled: true,
-    },
+    // {
+    //   field: 'createBy',
+    //   type: 'input',
+    //   label: '创建人',
+    //   placeholder: '请输入创建人',
+    // },
     {
       field: 'remark',
       type: 'input',
