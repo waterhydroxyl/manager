@@ -41,6 +41,8 @@ export default {
   },
   computed: {},
   created() {
+    const isAdmin = this.$store.getters.isAdmin;
+    console.log('isAdmin', isAdmin);
     // 获取菜单和选中菜单
     const info = [
       //资源
@@ -246,7 +248,136 @@ export default {
         ],
       },
     ];
-    this.menuList = info;
+    const info1 = [
+      //资源
+      {
+        id: 1,
+        name: '资源管理',
+        type: 1,
+        url: '/main/resourseMg',
+        icon: 'el-icon-monitor',
+        sort: 1,
+        children: [
+          {
+            id: 11,
+            url: '/main/resourseMg/eqMg',
+            name: '设备管理',
+            sort: 106,
+            type: 2,
+            children: null,
+            parentId: 1,
+          },
+          {
+            id: 13,
+            url: '/main/resourseMg/customerMg',
+            name: '客户管理',
+            sort: 106,
+            type: 2,
+            children: null,
+            parentId: 1,
+          },
+        ],
+      },
+      // 公告
+      {
+        id: 2,
+        name: '公告中心',
+        type: 1,
+        url: '/main/announceCT',
+        icon: 'el-icon-setting',
+        sort: 2,
+        children: [
+          {
+            id: 22,
+            url: '/main/announceCT/announceList',
+            name: '公告列表',
+            sort: 102,
+            type: 2,
+            parentId: 2,
+          },
+        ],
+      },
+      //任务
+      {
+        id: 3,
+        name: '任务中心',
+        type: 1,
+        url: '/main/taskesMG',
+        icon: 'el-icon-setting',
+        sort: 2,
+        children: [
+          {
+            id: 31,
+            url: '/main/taskesMG/taskMG',
+            name: '任务管理',
+            sort: 100,
+            type: 2,
+            parentId: 3,
+          },
+        ],
+      },
+      //员工
+      {
+        id: 4,
+        name: '员工中心',
+        type: 1,
+        url: '/main/employeCT',
+        icon: 'el-icon-monitor',
+        sort: 1,
+        children: [
+          {
+            id: 41,
+            url: '/main/employeCT/workCheckIn',
+            name: '工作打卡',
+            sort: 106,
+            type: 2,
+            children: null,
+            parentId: 4,
+          },
+          {
+            id: 42,
+            url: '/main/employeCT/workHours',
+            name: '工时统计',
+            sort: 106,
+            type: 2,
+            children: null,
+            parentId: 4,
+          },
+          {
+            id: 43,
+            url: '/main/employeCT/personInfo',
+            name: '个人信息',
+            sort: 106,
+            type: 2,
+            children: null,
+            parentId: 4,
+          },
+          {
+            id: 44,
+            url: '/main/employeCT/spendingList',
+            name: '支出列表',
+            sort: 107,
+            type: 2,
+            children: null,
+            parentId: 4,
+          },
+          {
+            id: 45,
+            url: '/main/employeCT/spendingApply',
+            name: '支出申请',
+            sort: 108,
+            type: 2,
+            children: null,
+            parentId: 4,
+          },
+        ],
+      },
+    ];
+    if (isAdmin) {
+      this.menuList = info;
+    } else {
+      this.menuList = info1;
+    }
     // this.menuActive = localCache.getCache('menuActive');
   },
   methods: {

@@ -16,7 +16,8 @@ const store = new Vuex.Store({
   },
   getters: {
     isAdmin(state) {
-      return state.loginUser.role === '0';
+      console.log(state.loginUser);
+      return state.loginUser.role === 0;
     },
   },
   mutations: {

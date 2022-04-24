@@ -1,7 +1,7 @@
 <template>
   <div class="nav-header">
     <span>便民设备管理系统</span>
-    <el-button>退出登录</el-button>
+    <el-button @click="handleLoginOut">退出登录</el-button>
   </div>
 </template>
 
@@ -27,6 +27,9 @@ export default {
     onFold() {
       this.isFold = !this.isFold;
       this.$emit('onFold', this.isFold);
+    },
+    handleLoginOut() {
+      this.$router.push('/login');
     },
   },
 };
