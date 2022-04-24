@@ -29,8 +29,8 @@
       <el-card class="box-card" shadow="hover" style="width: 557px; height: 610px">
         <h2>打卡详情</h2>
         <h3>打卡时间：{{ detailInfo.createTime }}</h3>
-        <h3>任务名称：{{detailInfo.taskName}}</h3>
-        <h3>备注信息：{{detailInfo.remark}}</h3>
+        <h3>任务名称：{{ detailInfo.taskName }}</h3>
+        <h3>备注信息：{{ detailInfo.remark }}</h3>
       </el-card>
     </div>
 
@@ -110,6 +110,7 @@ export default {
       myRequest.get(`/employee/clockStatus/${this.loginUserId}`).then((res) => {
         this.isCheckIn = res.data;
       });
+      this.getAllClock();
     },
     getAllClock() {
       myRequest.get(`/employee/getAllClock/${this.loginUserId}`).then((res) => {

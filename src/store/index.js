@@ -14,6 +14,11 @@ const store = new Vuex.Store({
       loginUser: {},
     };
   },
+  getters: {
+    isAdmin(state) {
+      return state.loginUser.role === '0';
+    },
+  },
   mutations: {
     setUserInfo(state, userInfo) {
       state.loginUser = userInfo;

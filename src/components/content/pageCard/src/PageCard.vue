@@ -20,7 +20,14 @@
         <div v-if="idCardNumber">身份证号码：{{ idCardNumber }}</div>
         <div class="bottom clearfix">
           <el-button type="primary" size="mini" class="button" @click="handleView">查看</el-button>
-          <el-button type="danger" size="mini" class="button" @click="handleDelect">删除</el-button>
+          <el-button
+            type="danger"
+            size="mini"
+            class="button"
+            @click="handleDelect"
+            v-if="this.$store.getters.isAdmin"
+            >删除</el-button
+          >
         </div>
       </div>
 

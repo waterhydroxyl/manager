@@ -1,7 +1,13 @@
 <template>
   <div class="overview">
     <div class="new">
-      <el-button type="primary" icon="el-icon-plus" @click="onCreate">新建</el-button>
+      <el-button
+        type="primary"
+        icon="el-icon-plus"
+        @click="onCreate"
+        v-if="this.$store.getters.isAdmin"
+        >新建</el-button
+      >
     </div>
     <div class="showInfo">
       <template v-for="item in eqList">
