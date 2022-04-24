@@ -47,7 +47,9 @@ export default {
   },
   methods: {
     handleConfirm() {
-      myRequest.patch(`/user/updateUser/${this.userInfo.id}`, this.userInfo).then(() => {
+      myRequest.patch(`/user/updateUser/${this.userInfo.id}`, this.userInfo).then((res) => {
+        console.log(res);
+        this.$store.commit('setUserInfo', res.data);
         this.$message.success('修改成功');
       });
       // this.$message.success('修改成功');

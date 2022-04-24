@@ -20,7 +20,7 @@ export const modalConfig = {
       field: 'money',
       type: 'input',
       label: '金额',
-      placeholder: '请输入公告类型',
+      placeholder: '请输入需要金额',
     },
     {
       field: 'taskId',

@@ -6,7 +6,7 @@
         >Vue2+JS</span
       >
     </div> -->
-    <el-menu class="el-menu-vertical" :collapse="isCollapse" :default-active="'11'">
+    <el-menu class="el-menu-vertical" :collapse="isCollapse" :default-active="'22'">
       <el-submenu :index="x.id + ''" v-for="x in menuList" :key="x.id">
         <template slot="title">
           <i :class="x.icon"></i>
@@ -89,7 +89,7 @@ export default {
         name: '公告中心',
         type: 1,
         url: '/main/announceCT',
-        icon: 'el-icon-setting',
+        icon: 'el-icon-tickets',
         sort: 2,
         children: [
           {
@@ -116,7 +116,7 @@ export default {
         name: '任务中心',
         type: 1,
         url: '/main/taskesMG',
-        icon: 'el-icon-setting',
+        icon: 'el-icon-suitcase',
         sort: 2,
         children: [
           {
@@ -135,7 +135,7 @@ export default {
         name: '员工中心',
         type: 1,
         url: '/main/employeCT',
-        icon: 'el-icon-monitor',
+        icon: 'el-icon-user',
         sort: 1,
         children: [
           {
@@ -218,7 +218,7 @@ export default {
         name: '财务中心',
         type: 1,
         url: '/main/financialCT',
-        icon: 'el-icon-setting',
+        icon: 'el-icon-money',
         sort: 2,
         children: [
           {
@@ -284,7 +284,7 @@ export default {
         name: '公告中心',
         type: 1,
         url: '/main/announceCT',
-        icon: 'el-icon-setting',
+        icon: 'el-icon-tickets',
         sort: 2,
         children: [
           {
@@ -303,7 +303,7 @@ export default {
         name: '任务中心',
         type: 1,
         url: '/main/taskesMG',
-        icon: 'el-icon-setting',
+        icon: 'el-icon-suitcase',
         sort: 2,
         children: [
           {
@@ -322,7 +322,7 @@ export default {
         name: '员工中心',
         type: 1,
         url: '/main/employeCT',
-        icon: 'el-icon-monitor',
+        icon: 'el-icon-user',
         sort: 1,
         children: [
           {

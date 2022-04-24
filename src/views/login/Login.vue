@@ -37,7 +37,7 @@ export default {
             console.log(res.data);
             this.$store.commit('setUserInfo', res.data);
             this.$message.success('登录成功');
-            this.$router.push('/main');
+            this.$router.push('/main/announceCT/announceList');
           } else {
             this.$message.error(res.msg);
           }
