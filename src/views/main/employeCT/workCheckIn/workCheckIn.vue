@@ -50,7 +50,7 @@ export default {
   name: 'workCheckIn',
   data() {
     return {
-      isCheckIn: false,
+      isCheckIn: true,
       imageUrlTrue: 'https://cloud.ilikestudy.cn//Typora25871649930952_.pic.jpg',
       imageUrlFalse: 'https://cloud.ilikestudy.cn//Typora25841649930874_.pic.jpg',
       loginUserId: 1,
@@ -74,6 +74,10 @@ export default {
   },
   methods: {
     handleView() {
+      if (!this.isCheckIn) {
+        this.$message.error('您已经过打卡了');
+        return;
+      }
       this.onView();
     },
     getTaskList() {

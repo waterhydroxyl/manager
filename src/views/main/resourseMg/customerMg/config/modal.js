@@ -4,8 +4,8 @@ export const modalConfig = {
     {
       field: 'name',
       type: 'input',
-      label: '姓名',
-      placeholder: '请输入用户名',
+      label: '客户名称',
+      placeholder: '请输入客户名称',
     },
     {
       field: 'telephoneNumber',

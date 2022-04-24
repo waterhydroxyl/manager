@@ -5,7 +5,7 @@ export const modalConfig = {
       field: 'name',
       type: 'input',
       label: '公告名称',
-      placeholder: '请输入用户名',
+      placeholder: '请输入公告名称',
     },
     {
       field: 'type',

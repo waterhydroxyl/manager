@@ -30,7 +30,7 @@ export const modalConfig = {
       field: 'role',
       type: 'select',
       label: '角色',
-      placeholder: '请输入价格',
+      placeholder: '请选择角色',
       options: [
         { title: '管理员', value: 0 },
         { title: '用户', value: 1 },

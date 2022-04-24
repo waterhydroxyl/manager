@@ -17,7 +17,7 @@ export const modalConfig = {
       field: 'model',
       type: 'input',
       label: '型号',
-      placeholder: '请输入真实姓名',
+      placeholder: '请输入型号信息',
     },
     {
       field: 'price',
