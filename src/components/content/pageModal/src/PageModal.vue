@@ -14,7 +14,7 @@
         <el-upload
           v-if="showElUpload"
           class="avatar-uploader"
-          action="/api/common/uploadPicture"
+          action="/myapi/common/uploadPicture"
           name="file"
           :auto-upload="true"
           :show-file-list="false"

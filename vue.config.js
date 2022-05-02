@@ -12,7 +12,7 @@ module.exports = {
       },
       '/myApi': {
         // target: 'http://119.91.195.233:3001',
-        target: 'http://localhost:3001',
+        target: 'http://localhost:8101',
         pathRewrite: {
           '^/myApi': '',
         },
