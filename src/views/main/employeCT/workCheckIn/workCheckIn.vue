@@ -28,7 +28,7 @@
 
       <el-card class="detail-card" shadow="hover" style="width: 557px; height: 610px">
         <h2>打卡详情</h2>
-        <h3>打卡时间：{{ detailInfo.cloktime }}</h3>
+        <h3>打卡时间：{{ detailInfo.clockTime }}</h3>
         <h3>任务名称：{{ detailInfo.taskName }}</h3>
         <h3>备注信息：{{ detailInfo.remark }}</h3>
       </el-card>
