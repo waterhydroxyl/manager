@@ -1,5 +1,5 @@
 export const contentConfig = {
-  title: '待审列表',
+  title: '支出列表',
   propList: [
     { prop: 'spendType', label: '花费类型', minWidth: '100' },
     { prop: 'money', label: '金额', minWidth: '100' },

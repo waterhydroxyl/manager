@@ -41,9 +41,9 @@ export default {
   },
   methods: {
     getPendList() {
-      myRequest.get(`employee/getWorkList/1`).then((res) => {
+      myRequest.get(`employee/getWorkList/${this.$store.state.loginUser.id}/${this.page}/6`).then((res) => {
         console.log(res);
-        this.dataList = res.data;
+        this.dataList = res.data.list;
       });
     },
     handleCurrentChange(val) {
