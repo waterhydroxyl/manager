@@ -2,16 +2,16 @@
   <div class="bg">
     <el-card class="box-card">
       <el-form>
-        <h3>登录系统</h3>
+        <h3>欢迎来到便民设备管理系统！</h3>
         <el-form-item>
           <el-input v-model="loginForm.account" placeholder="用户名"></el-input>
         </el-form-item>
         <el-form-item>
           <el-input type="password" v-model="loginForm.password" placeholder="密码"></el-input>
         </el-form-item>
-        <el-form-item>
+        <el-form-item class="btn">
           <el-button type="primary" @click="login">登录</el-button>
-          <el-button type="primary" @click="reset">重置</el-button>
+          <el-button type="warning" @click="reset">重置</el-button>
         </el-form-item>
       </el-form>
     </el-card>
@@ -54,6 +54,10 @@ export default {
 </script>
 
 <style>
+.btn {
+  display: flex;
+  justify-content: space-between;
+}
 .bg {
   display: flex;
   justify-content: center;
