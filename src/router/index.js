@@ -1,7 +1,7 @@
 import VueRouter from 'vue-router';
 import Vue from 'vue';
 
-// import localCache from '@/utils/cache';
+import localCache from '@/utils/cache';
 Vue.use(VueRouter);
 
 const originalPush = VueRouter.prototype.push;
@@ -120,17 +120,17 @@ const router = new VueRouter({
   mode: 'history',
 });
 
-// router.beforeEach((to, from, next) => {
-//   // 跳转到其他页面，校验token
-//   if (to.path !== '/login') {
-//     const token = localCache.getCache('token');
-//     if (!token) {
-//       next({ name: 'login' });
-//     } else {
-//       next();
-//     }
-//   } else {
-//     next();
-//   }
-// });
+router.beforeEach((to, from, next) => {
+  // 跳转到其他页面，校验token
+  if (to.path !== '/login') {
+    const token = localCache.getCache('vuex');
+    if (!token) {
+      next({ name: 'login' });
+    } else {
+      next();
+    }
+  } else {
+    next();
+  }
+});
 export default router;

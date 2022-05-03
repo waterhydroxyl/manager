@@ -6,6 +6,7 @@
 </template>
 
 <script>
+import localCache from '@/utils/cache';
 import { pathMapBreadcrumbs } from '@/utils/mapMenus';
 
 export default {
@@ -29,6 +30,7 @@ export default {
       this.$emit('onFold', this.isFold);
     },
     handleLoginOut() {
+      localCache.clearCache();
       this.$router.push('/login');
     },
   },
