@@ -36,6 +36,7 @@
 
     <PageModal
       ref="pageModalRef"
+      v-bind:isCheckIn="true"
       :modalConfig="modalConfig"
       :defaultInfo="formData"
       :handleType="handleType"

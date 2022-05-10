@@ -53,6 +53,10 @@ export default {
     ChhForm,
   },
   props: {
+    isCheckIn: {
+      type: Boolean,
+      default: false,
+    },
     pageName: {
       type: String,
       require: true,
@@ -83,7 +87,7 @@ export default {
   },
   computed: {
     isShowConfirm() {
-      return this.$store.getters.isAdmin;
+      return this.$store.getters.isAdmin || this.isCheckIn;
     },
     title() {
       const titleEnum = {
