@@ -34,7 +34,7 @@
       <template #footer>
         <span class="dialog-footer">
           <el-button @click="showDialog = false">取 消</el-button>
-          <el-button type="primary" @click="onConfirm">确 定</el-button>
+          <el-button type="primary" @click="onConfirm" v-if="isShowConfirm">确 定</el-button>
         </span>
       </template>
     </el-dialog>
@@ -82,6 +82,9 @@ export default {
     };
   },
   computed: {
+    isShowConfirm() {
+      return this.$store.getters.isAdmin;
+    },
     title() {
       const titleEnum = {
         create: '新建',

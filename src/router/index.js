@@ -113,6 +113,7 @@ const routes = [
       },
     ],
   },
+  { path: '*',component: () => import('@/views/notFound/notFound.vue')  },
 ];
 
 const router = new VueRouter({

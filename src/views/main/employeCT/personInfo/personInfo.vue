@@ -3,7 +3,7 @@
     <div class="main">
       <el-upload
         class="avatar-uploader"
-        action="/api/common/uploadPicture"
+        action="/myApi/common/uploadPicture"
         name="file"
         :auto-upload="true"
         :show-file-list="false"
