@@ -33,7 +33,8 @@
       <slot></slot>
       <template #footer>
         <span class="dialog-footer">
-          <el-button @click="showDialog = false">取 消</el-button>
+           <el-button @click="handleCancel">取 消</el-button>
+          <!-- <el-button @click="showDialog = false">取 消</el-button> -->
           <el-button type="primary" @click="onConfirm" v-if="isShowConfirm">确 定</el-button>
         </span>
       </template>
@@ -111,7 +112,7 @@ export default {
       }
     },
     image() {
-      return this.defaultInfo.img;
+      return this.newImage ? this.newImage : this.defaultInfo.img;
     },
     id() {
       return this.defaultInfo.id;
@@ -157,6 +158,10 @@ export default {
       console.log(this.formData);
 
       this.$emit('onConfirm', this.formData, this.id);
+    },
+    handleCancel() {
+      this.newImage = '';
+      this.showDialog = false;
     },
     /* 表单值改变 */
     onChangeValue(formData) {

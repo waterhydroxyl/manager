@@ -35,6 +35,7 @@ export const modalConfig = {
         { title: '管理员', value: 0 },
         { title: '用户', value: 1 },
       ],
+      disabled: true,
     },
     {
       field: 'workNumber',

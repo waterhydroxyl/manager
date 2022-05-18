@@ -7,7 +7,9 @@
         name="file"
         :auto-upload="true"
         :show-file-list="false"
+        :on-success="handleAvatarSuccess"
       >
+      <!-- <img v-if="image ? image : newImage" :src="image ? image : newImage" class="avatar" /> -->
         <img :src="userInfo.img" class="avatar" />
       </el-upload>
       <chh-form v-bind="modalConfig" :formData="userInfo" @onChangeValue="onChangeValue">
@@ -30,6 +32,7 @@ export default {
   data() {
     return {
       userInfo: {},
+      // newImage: '',
     };
   },
   created() {
@@ -44,8 +47,18 @@ export default {
     modalConfig() {
       return modalConfig;
     },
+    imgUrl() {
+      return this.newImage ? this.newImage :this.userInfo.img
+    },
   },
   methods: {
+    handleAvatarSuccess(res, file) {
+      console.log(file);
+      // this.imageUrl = URL.createObjectURL(file.raw);
+      // this.newImage = res.data;
+      this.$set(this.userInfo, 'img', res.data);
+      // this.userInfo.img = res.data;
+    },
     handleConfirm() {
       myRequest.patch(`/user/updateUser/${this.userInfo.id}`, this.userInfo).then((res) => {
         console.log(res);
