@@ -8,7 +8,7 @@
         <PageCard
           :name="item.name"
           :model="item.model"
-          :createBy="item.createBy"
+          :createBy="item.superintendent"
           :imageUrl="item.img"
           :key="item.id"
           :id="item.id"

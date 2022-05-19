@@ -29,14 +29,14 @@ export const modalConfig = {
       field: 'workTime',
       type: 'input',
       label: '工作时长',
-      placeholder: '请输入电话号码',
+      placeholder: '工作时长',
       disabled: true,
     },
     {
       field: 'totalRevenue',
       type: 'input',
       label: '累计收入',
-      placeholder: '请选择部门',
+      placeholder: '累计收入',
       disabled: true,
     },
     {

@@ -16,7 +16,7 @@ export const modalConfig = {
       disabled: true,
     },
     {
-      field: 'taskId',
+      field: 'taskName',
       type: 'select',
       label: '所属任务',
       placeholder: '请选择任务(可不填)',
