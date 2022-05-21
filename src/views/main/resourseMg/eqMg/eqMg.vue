@@ -17,6 +17,7 @@
           :imageUrl="item.img"
           :key="item.id"
           :id="item.id"
+          :eqStatus="item.status"
           @view="handleView"
           @delect="handleDelect"
         />
